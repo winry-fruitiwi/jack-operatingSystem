@@ -15,9 +15,12 @@ class Array {
 
     /** Constructs a new Array of the given size. */
     function Array new(int size) {
+        // Allocate a block for the array of length size.
+        // Otherwise it would have no fields.
     }
 
     /** Disposes this array. */
     method void dispose() {
+        // Dispose of the array
     }
 }
