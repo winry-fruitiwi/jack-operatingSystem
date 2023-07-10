@@ -1,0 +1,17 @@
+12:17 pm Monday, July 10, 2023
+[1217]→	Unit 6.13: Project 12: Building the OS
+OS is just an abstraction specified by the API
+if we are a software developer learning to code, we are satisfied
+however, we're part of Nand2Tetris and we will implement the OS!
+VME has a built-in OS implementation in Java
+nand2tetris/tools/os has another OS implementation in Jack, but it's been translated to VM to avoid giving away the solution
+reverse engineering: you want to implement existing OS
+	has lots of executable models and rely on each other (you have source code)
+	to implement you should test each file on its own inside the other models and run them separately
+how to test OS screen class?
+	get the stub file: skeleton of all the non-API subroutines
+	just review relevant material to implement
+	given: stub file, test file. goal: implement functions in stub file, past test
+	repeat for other classes
+develop in any order!
+final test: Pong! make copy, copy compiled VM files, execute directory
