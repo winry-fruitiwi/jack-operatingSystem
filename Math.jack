@@ -23,6 +23,25 @@ class Math {
      *  the Jack expressions x*y and multiply(x,y) return the same value.
      */
     function int multiply(int x, int y) {
+        /** algorithm:
+        sum = 0
+        shiftedX = x
+        for i = 0 ... w-1 (num of bits in y):
+            if ((i'th bit of y) == 1):
+                sum = sum + shiftedX
+            shiftedX = shiftedX + shiftedX
+        */
+
+        // define sum and shiftedX variables, then find all bits in y and name
+        // the resulting variable yBits
+
+        // iterate through the number of bits in y, which is in this case 16
+
+            // if the i'th bit of y is 1, then add shiftedX to the sum
+
+            // regardless of what happens, shift shiftedX to the right
+
+        // then return the sum
     }
 
     /** Returns the integer part of x/y.
