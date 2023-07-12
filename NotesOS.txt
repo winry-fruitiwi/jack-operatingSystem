@@ -15,3 +15,33 @@ how to test OS screen class?
 	repeat for other classes
 develop in any order!
 final test: Pong! make copy, copy compiled VM files, execute directory
+
+
+
+01:40 pm Monday, July 10, 2023
+[1340]→	Unit 6.2: Efficiency Matters
+focus on the math() library
+efficiency REALLY matters. operations are used very widely
+let's try multiplication
+	x * y (or use Math.multiply)
+	possible solution: repetitive solution. runtime: dominated by y
+		well it can be shortened to the smaller number but doesn't matter
+	algorithm is REALLY slow
+	real algorithm: based on what you learn in elementary(?) school
+	x = multiplicand
+	y = multiplier
+	for every bit in y, multiply the multiplicand by the bit (very simple)
+	then add up all the results
+	algorithm:
+		sum = 0
+		shiftedX = x
+		for i = 0 ... w-1 (num of bits in y):
+			if ((i'th bit of y) == 1):
+				sum = sum + shiftedX
+			shiftedX = shiftedX + shiftedX
+
+		return sum
+
+	This works for both software and hardware
+
+we have now knocked out both efficiency matters and multiplication!
