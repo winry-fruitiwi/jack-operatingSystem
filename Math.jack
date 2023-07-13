@@ -17,11 +17,28 @@ class Math {
     function int abs(int x) {
     }
 
+    // Returns the binary representation of an integer.
+    function String convertToBin(int x) {
+        /**
+        Takes in an integer, returns a string
+            iterate through 32768 to 2 and hardcode each value in between! use if statements
+                if the current power fits into the current num, add 1 to the output string. Otherwise, add 0
+            return the output string
+        */
+
+        // define the empty string
+
+        // iterate from -32768 to 2 and hardcode each value with if statements!
+        // if the current power fits into the current number, add 1 to the output string, otherwise add 0
+
+        // repeat for 32767, 16384, 8192, 4096, 2048, 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1
+    }
+
     /** Returns the product of x and y. 
      *  When a Jack compiler detects the multiplication operator '*' in the 
      *  program's code, it handles it by invoking this method. In other words,
      *  the Jack expressions x*y and multiply(x,y) return the same value.
-     */
+    */
     function int multiply(int x, int y) {
         /** algorithm:
         sum = 0
