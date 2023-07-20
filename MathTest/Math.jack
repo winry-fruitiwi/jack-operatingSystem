@@ -31,8 +31,8 @@ class Math {
         let twoToThe[12] = 4096;
         let twoToThe[13] = 8192;
         let twoToThe[14] = 16384;
-        let twoToThe[15] = -32768;
-        return this;
+        let twoToThe[15] = -32767;
+        return;
     }
 
     /** Returns the absolute value of x. */
@@ -42,7 +42,7 @@ class Math {
 
     // finds the i'th bit of x
     function boolean bit(int x, int i) {
-        var int power, int num;
+        var int power, num;
 
         // iterate backwards through twoToThe until the i'th index
         let power = 15;
@@ -51,13 +51,11 @@ class Math {
 
         while (power < i) {
             // for every bit until the i'th index, if it is smaller than x, subtract it from x
-            if (twoToThe[power] < num) {  let num = num - twoToThe[power]; }
+            if (twoToThe[power] < num) { let num = num - twoToThe[power]; }
             let power = power - 1;
         }
         // if we are already at i, do the same check and return the result
         return (twoToThe[power] < num);
-
-        return true;
     }
 
     /** Returns the product of x and y. 
