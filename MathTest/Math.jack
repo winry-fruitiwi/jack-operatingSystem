@@ -31,7 +31,7 @@ class Math {
         let twoToThe[12] = 4096;
         let twoToThe[13] = 8192;
         let twoToThe[14] = 16384;
-        let twoToThe[15] = -32767;
+        let twoToThe[15] = -16384 - 16384;
         return;
     }
 
@@ -42,20 +42,20 @@ class Math {
 
     // finds the i'th bit of x
     function boolean bit(int x, int i) {
-        var int power, num;
+        // var int power, num;
 
-        // iterate backwards through twoToThe until the i'th index
-        let power = 15;
-        // copy of x
-        let num = x;
+        // // iterate backwards through twoToThe until the i'th index
+        // let power = 15;
+        // // copy of x
+        // let num = x;
 
-        while (power < i) {
-            // for every bit until the i'th index, if it is smaller than x, subtract it from x
-            if (twoToThe[power] < num) { let num = num - twoToThe[power]; }
-            let power = power - 1;
-        }
-        // if we are already at i, do the same check and return the result
-        return (twoToThe[power] < num);
+        // while (power > i) {
+        //     // for every bit until the i'th index, if it is smaller than x, subtract it from x
+        //     if (twoToThe[power] < num) { let num = num - twoToThe[power]; }
+        //     let power = power - 1;
+        // }
+        // // if we are already at i, do the same check and return the result
+        return twoToThe[i] & x;
     }
 
     /** Returns the product of x and y. 
@@ -64,6 +64,8 @@ class Math {
      *  the Jack expressions x*y and multiply(x,y) return the same value.
     */
     function int multiply(int x, int y) {
+        var int sum, shiftedX, counter;
+
         /** algorithm:
         sum = 0
         shiftedX = x
@@ -75,15 +77,25 @@ class Math {
 
         // define sum and shiftedX variables, then find all bits in y and name
         // the resulting variable yBits
+        let sum = 0;
+        let shiftedX = x;
+        let counter = 0;
 
         // iterate through the number of bits in y, which is in this case 16
-
+        while (counter < 16) {
             // if the i'th bit of y is 1, then add shiftedX to the sum
+            if (Math.bit(y, counter)) {
+                let sum = sum + shiftedX;
+            }
 
             // regardless of what happens, shift shiftedX to the right
+            let shiftedX = shiftedX + shiftedX;
+
+            let counter = counter + 1;
+        }
 
         // then return the sum
-        return 1;
+        return sum;
     }
 
     /** Returns the integer part of x/y.

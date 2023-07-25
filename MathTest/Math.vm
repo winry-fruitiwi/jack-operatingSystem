@@ -125,8 +125,10 @@ pop that 0
 push constant 15
 push static 0
 add
-push constant 32767
+push constant 16384
 neg
+push constant 16384
+sub
 pop temp 0
 pop pointer 1
 push temp 0
@@ -136,52 +138,50 @@ return
 function Math.abs 0
 push constant 0
 return
-function Math.bit 2
-push constant 15
+function Math.bit 0
+push argument 1
+push static 0
+add
+pop pointer 1
+push that 0
+push argument 0
+and
+return
+function Math.multiply 3
+push constant 0
 pop local 0
 push argument 0
 pop local 1
+push constant 0
+pop local 2
 label WHILE_EXP0
-push local 0
-push argument 1
+push local 2
+push constant 16
 lt
 not
 if-goto WHILE_END0
-push local 0
-push static 0
-add
-pop pointer 1
-push that 0
-push local 1
-lt
+push argument 1
+push local 2
+call Math.bit 2
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
+push local 0
 push local 1
-push local 0
-push static 0
 add
-pop pointer 1
-push that 0
-sub
-pop local 1
-label IF_FALSE0
-push local 0
-push constant 1
-sub
 pop local 0
+label IF_FALSE0
+push local 1
+push local 1
+add
+pop local 1
+push local 2
+push constant 1
+add
+pop local 2
 goto WHILE_EXP0
 label WHILE_END0
 push local 0
-push static 0
-add
-pop pointer 1
-push that 0
-push local 1
-lt
-return
-function Math.multiply 0
-push constant 1
 return
 function Math.divide 0
 push constant 2
