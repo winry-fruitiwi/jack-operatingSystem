@@ -45,3 +45,33 @@ let's try multiplication
 	This works for both software and hardware
 
 we have now knocked out both efficiency matters and multiplication!
+
+
+11:37 am Wednesday, July 26, 2023
+[1137]→	multiply already done!
+now ready for division
+naive:
+	count how many times we can subtract! proportional to x
+
+good:
+	what is largest number x=(100, 90, 80, ... 10) so that 3*x <= 175?
+	answer must be at least 50 - accelerated subtraction
+	get remainder
+	repeat with one less 0
+	get remainder
+	if less than dividend, you're done
+	long division is extremely short!
+
+	recursive algorithm:
+		if (y > x) return 0
+		q = divide(2, 2*y)
+		if ((x - 2*q*y) < y)
+			return 2*q
+
+		else
+			return 2*q+1
+
+		(but it requires multiplication! wah!)
+
+		dividing negative numbers: use abs function
+		overflow: just check y < 0
