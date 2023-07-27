@@ -107,16 +107,30 @@ class Math {
         /**
          recursive algorithm:
          if (y > x) return 0
-         q = divide(2, 2*y)
+         q = divide(x, 2*y)
          if ((x - 2*q*y) < y)
              return 2*q
-
+ 
          else
              return 2*q+1
-
-         use abs to handle negatives
-         check y<0 in case of overflow
+ 
+         dividing negative numbers: use abs function
+         overflow: just check y < 0
         */
+
+        var int q;
+
+        if (y < x) {
+            return 0;
+        }
+
+        let q = Math.divide(x, y + y); // doesn't require multiplication
+
+        if ((x - 2*q*y) < y) {
+            return 2*q;
+        } else {
+            return 2*q+1;
+        }
     }
 
     /** Returns the integer part of the square root of x. */
