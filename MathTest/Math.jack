@@ -37,7 +37,10 @@ class Math {
 
     /** Returns the absolute value of x. */
     function int abs(int x) {
-        return 0;
+        if (x < 0) {
+            return -x;
+        }
+        return x;
     }
 
     // finds the i'th bit of x
@@ -103,7 +106,7 @@ class Math {
      *  program's code, it handles it by invoking this method. In other words,
      *  the Jack expressions x/y and divide(x,y) return the same value.
      */
-    function int divide(int x, int y) {
+    function int divide(int argX, int argY) {
         /**
          recursive algorithm:
          if (y > x) return 0
@@ -118,18 +121,33 @@ class Math {
          overflow: just check y < 0
         */
 
-        var int q;
+        var int q, x, y;
+        var int negativity;
 
-        if (y < x) {
+        // check if: x is negative but y isn't or x isn't negative but y is
+        if (((argX < 0) & ((argY > 0) | (argY = 0))) | ((argY < 0) & ((argX > 0) | (argX = 0)))) {
+            do Output.printString("negative ");
+            let negativity = -1;
+        } else {
+            let negativity = 1;
+            do Output.printString(" ");
+        }
+
+        let x = Math.abs(argX);
+        let y = Math.abs(argY);
+
+        if ((y > x) | (y+y < 0)) {
             return 0;
         }
 
         let q = Math.divide(x, y + y); // doesn't require multiplication
 
-        if ((x - 2*q*y) < y) {
-            return 2*q;
+        if ((x - ((q*y)+(q*y))) < y) {
+
+            return (q+q) * negativity;
         } else {
-            return 2*q+1;
+            
+            return (q+q+1) * negativity;
         }
     }
 
