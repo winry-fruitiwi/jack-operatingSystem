@@ -126,11 +126,9 @@ class Math {
 
         // check if: x is negative but y isn't or x isn't negative but y is
         if (((argX < 0) & ((argY > 0) | (argY = 0))) | ((argY < 0) & ((argX > 0) | (argX = 0)))) {
-            do Output.printString("negative ");
             let negativity = -1;
         } else {
             let negativity = 1;
-            do Output.printString(" ");
         }
 
         let x = Math.abs(argX);
@@ -151,9 +149,46 @@ class Math {
         }
     }
 
+    function int pow(int x, int power) {
+        var int powCount;
+        var int result;
+
+        let result = 1;
+
+        // iterate up to the power desired and execute repetitive multiplication
+        while (powCount < power) {
+            let result = result * x;
+        }
+
+        return result;
+    }
+
     /** Returns the integer part of the square root of x. */
     function int sqrt(int x) {
-        return 3;
+        /**
+         y = 0
+         for j=n/2 - 1 ... 0 do:
+             if (y + 2^j) * (y + 2^j) <= x then y = y + 2^j (multiply 2 j times)
+         return y
+        */
+        var int j, y, result;
+
+        let j = x/2 - 1;
+
+        while (j > 0) {
+            // compute (y + 2^j)²
+            let result = y + Math.pow(2, j);
+            let result = result * result;
+
+            // check if that's <= x, if it is then increase the value by 2^j
+            if ((result < x) | (result = x)) {
+                let y = y + Math.pow(2, j);
+            }
+
+            let j = j - 1;
+        }
+
+        return y;
     }
 
     /** Returns the greater number. */

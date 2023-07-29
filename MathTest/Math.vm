@@ -314,8 +314,70 @@ push local 3
 call Math.multiply 2
 return
 label IF_END2
-function Math.sqrt 0
-push constant 3
+function Math.pow 2
+push constant 1
+pop local 1
+label WHILE_EXP0
+push local 0
+push argument 1
+lt
+not
+if-goto WHILE_END0
+push local 1
+push argument 0
+call Math.multiply 2
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push local 1
+return
+function Math.sqrt 3
+push argument 0
+push constant 2
+call Math.divide 2
+push constant 1
+sub
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 0
+gt
+not
+if-goto WHILE_END0
+push local 1
+push constant 2
+push local 0
+call Math.pow 2
+add
+pop local 2
+push local 2
+push local 2
+call Math.multiply 2
+pop local 2
+push local 2
+push argument 0
+lt
+push local 2
+push argument 0
+eq
+or
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 1
+push constant 2
+push local 0
+call Math.pow 2
+add
+pop local 1
+label IF_FALSE0
+push local 0
+push constant 1
+sub
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push local 1
 return
 function Math.max 0
 push constant 4

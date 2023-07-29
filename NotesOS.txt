@@ -75,3 +75,19 @@ good:
 
 		dividing negative numbers: use abs function
 		overflow: just check y < 0
+
+
+10:12 am Friday, July 28, 2023
+[1012]→	sqrt
+two good properties: inverse function easy to compute, always increases
+you can use binary search. logarithmic!
+
+sqrt(x):
+	y = 0
+	for j=n/2 - 1 ... 0 do:
+		if (y + 2^j) * (y + 2^j) <= x then y = y + 2^j (multiply 2 j times)
+	return y
+
+remaining functions: trivial!
+
+calculate (y + 2^j) beforehand, check for >0
