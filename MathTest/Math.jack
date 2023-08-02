@@ -158,6 +158,8 @@ class Math {
         // iterate up to the power desired and execute repetitive multiplication
         while (powCount < power) {
             let result = result * x;
+
+            let powCount = powCount + 1;
         }
 
         return result;
@@ -171,21 +173,28 @@ class Math {
              if (y + 2^j) * (y + 2^j) <= x then y = y + 2^j (multiply 2 j times)
          return y
         */
-        var int j, y, result;
+        var int j, y, result, twoToJ;
 
         let j = x/2 - 1;
 
-        while (j > 0) {
+        // same as saying j >= 0 if you code in Python and Javascript
+        while (j > -1) {
+            if (j < 16) {
+                let twoToJ = twoToThe[j];
+            } else {
+                let twoToJ = 0;
+            }
+
             // compute (y + 2^j)²
-            let result = y + Math.pow(2, j);
+            let result = y + twoToJ;
             let result = result * result;
 
             // check if that's <= x, if it is then increase the value by 2^j
-            if ((result < x) | (result = x)) {
-                let y = y + Math.pow(2, j);
+            if (((result < x) | (result = x)) & (result > 0)) {
+                let y = y + twoToJ;
             }
 
-            let j = j - 1;
+            let j = j/2 - 1;
         }
 
         return y;
