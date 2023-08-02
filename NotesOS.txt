@@ -91,3 +91,36 @@ sqrt(x):
 remaining functions: trivial!
 
 calculate (y + 2^j) beforehand, check for >0
+
+
+
+07:45 am Wednesday, August 02, 2023
+[0745]→	all classical
+RAM needs ability to be directly accessed
+looks really difficult to implement
+needs to be in jack!
+naive solution: create array called RAM
+size of HACK ram
+can't alloc in heap
+real approach: create a static array
+set an array... to 0 and try to call it a job?
+works because that sets the base array index to 0
+jack is weakly typed
+peek and poke is a piece of cake now
+
+
+
+09:07 am Wednesday, August 02, 2023
+[0907]→	alloc and dealloc
+we didn't implement garbage collection in jack, it's very hard to implement
+
+how to implement alloc vs dealloc
+you have to change the free and size and give a block to the high-level
+look for a block that has the right size and give it to the object
+two algorithms: first fit vs best fit
+	first fit - greedy, looks for first segment
+	best fit - looks for smallest segment
+
+parking lot example
+
+defrag - not required but useful
